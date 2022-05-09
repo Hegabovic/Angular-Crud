@@ -1,0 +1,55 @@
+<div id="contenttext">
+  <p> Department table </p>
+  <table class="table table-bordered table-hover">
+    <thead>
+    <tr align="center">
+      <th>#</th>
+      <th>Id</th>
+      <th>Department Name</th>
+      <th>Location</th>
+      <th>Options</th>
+
+    </tr>
+    </thead>
+    <tbody align="center">
+    <tr *ngFor="let dep of deps, let serial = index;">
+      <td>{{serial + 1}}</td>
+      <td>{{ dep.id }}</td>
+      <td>{{dep.depName}}</td>
+      <td>{{ dep.location }}</td>
+
+      <td class="p-1">
+        <button type="button" data-bs-toggle="modal" data-bs-target="#editDep" class="btn btn-warning m-0"
+                (click)="edit(dep.id)">Edit
+        </button>
+        <button class="btn btn-danger m-1" (click)="delete(dep.id)">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  id<input [value]="nDep.id" class="form-control" type="text" [(ngModel)]="nDep.id">
+  Name<input [value]="nDep.depName" class="form-control" type="text" [(ngModel)]="nDep.depName">
+  Age <input [value]="nDep.location" class="form-control" type="text" [(ngModel)]="nDep.location">
+
+  <button class="btn btn-primary m-1" (click)="add()">add</button>
+
+
+  <div class="modal" tabindex="-1" id="editDep">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit Department</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-footer form-control">
+          name <input class="form-control" type="text" [(ngModel)]="selectedDepartment.depName">
+          location <input class="form-control" type="text" [(ngModel)]="selectedDepartment.location">
+          <button class="btn btn-primary" data-bs-dismiss="modal" (click)="save(selectedDepartment.id)">save</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

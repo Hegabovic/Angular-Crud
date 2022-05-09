@@ -1,0 +1,54 @@
+<div id="contenttext">
+  <p> student table </p>
+  <table class="table table-bordered table-hover">
+    <thead>
+    <tr align="center">
+      <th>#</th>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Dno</th>
+      <th>Options</th>
+    </tr>
+    </thead>
+    <tbody align="center">
+    <tr *ngFor="let std of stds, let serial = index;">
+      <td>{{serial+1}}</td>
+      <td>{{ std.id }}</td>
+      <td>{{std.name}}</td>
+      <td>{{ std.age }}</td>
+      <td>{{ std.depNo }}</td>
+      <td class="p-1">
+        <button type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-warning m-0" (click)="edit(std.id)">Edit</button>
+        <button class="btn btn-danger m-1" (click)="delete(std.id)">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+    id<input [value]="nStd.id" class="form-control" type="text" [(ngModel)]="nStd.id">
+    Name<input [value]="nStd.name" class="form-control" type="text" [(ngModel)]="nStd.name">
+    Age <input [value]="nStd.age" class="form-control" type="text" [(ngModel)]="nStd.age">
+    Dno <input [value]="nStd.depNo" class="form-control" type="text" [(ngModel)]="nStd.depNo">
+    <button class="btn btn-primary m-1" (click)="add()">add</button>
+
+
+  <div class="modal" tabindex="-1" id="exampleModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit Student</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-footer form-control">
+          Name<input class="form-control" type="text" [(ngModel)]="selectedStudent.name" >
+          Age <input class="form-control" type="text" [(ngModel)]="selectedStudent.age">
+          Dno <input class="form-control" type="text" [(ngModel)]="selectedStudent.depNo">
+          <button class="btn btn-primary" data-bs-dismiss="modal" (click)="save(selectedStudent.id)">save</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
