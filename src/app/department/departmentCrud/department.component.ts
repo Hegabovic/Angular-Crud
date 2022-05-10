@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {Department} from "../_model/department";
+import {Component} from '@angular/core';
+import {Department} from "../../_model/department";
 
 @Component({
-  selector: 'app-department',
+  selector: 'app-departmentCrud',
   templateUrl: './department.component.html',
   styleUrls: ['./department.component.css']
 })

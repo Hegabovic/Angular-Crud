@@ -1,8 +1,8 @@
 import {Component} from "@angular/core";
-import {Student} from "../_model/student";
+import {Student} from "../../_model/student";
 
 @Component({
-  selector: 'app-student',
+  selector: 'app-studentCrud',
   templateUrl: './student.component.html',
   styleUrls: ['./student.component.css']
 })
